@@ -1,4 +1,4 @@
-# prova_de_vida
+# google_ml_kit_face_detection
 
 A new Flutter project.
 
