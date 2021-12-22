@@ -5,13 +5,15 @@ import 'camera_view.dart';
 import 'face_detector_painter.dart';
 
 class FaceDetectorView extends StatefulWidget {
+  const FaceDetectorView({Key? key}) : super(key: key);
+
   @override
   _FaceDetectorViewState createState() => _FaceDetectorViewState();
 }
 
 class _FaceDetectorViewState extends State<FaceDetectorView> {
   FaceDetector faceDetector = GoogleMlKit.vision.faceDetector(
-    FaceDetectorOptions(
+    const FaceDetectorOptions(
       enableContours: true,
       enableClassification: true,
       enableTracking: true,

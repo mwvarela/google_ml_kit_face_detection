@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +9,15 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   cameras = await availableCameras();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
@@ -25,21 +25,25 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Face Detector App'),
+        title: const Text('Face Detector App'),
         centerTitle: true,
         elevation: 0,
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FaceDetectorView()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const FaceDetectorView()));
           },
-          child: Text('Face Detector'),
+          child: const Text('Face Detector'),
         ),
       ),
     );
