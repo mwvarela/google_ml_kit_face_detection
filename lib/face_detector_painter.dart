@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 
@@ -30,13 +32,15 @@ class FaceDetectorPainter extends CustomPainter {
       );
 
       void paintContour(FaceContourType type) {
-        final faceContour = face.getContour(type);
-        if (faceContour?.positionsList != null) {
-          for (Offset point in faceContour!.positionsList) {
+        final faceContour = face.contours[type];
+        if (faceContour?.points != null) {
+          for (final Point point in faceContour!.points) {
             canvas.drawCircle(
                 Offset(
-                  translateX(point.dx, rotation, size, absoluteImageSize),
-                  translateY(point.dy, rotation, size, absoluteImageSize),
+                  translateX(
+                      point.x.toDouble(), rotation, size, absoluteImageSize),
+                  translateY(
+                      point.y.toDouble(), rotation, size, absoluteImageSize),
                 ),
                 1,
                 paint);

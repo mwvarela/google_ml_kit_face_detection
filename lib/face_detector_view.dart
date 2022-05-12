@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'camera_view.dart';
@@ -13,7 +12,7 @@ class FaceDetectorView extends StatefulWidget {
 
 class _FaceDetectorViewState extends State<FaceDetectorView> {
   FaceDetector faceDetector = GoogleMlKit.vision.faceDetector(
-    const FaceDetectorOptions(
+    FaceDetectorOptions(
       enableContours: true,
       enableClassification: true,
       enableTracking: true,
@@ -36,7 +35,6 @@ class _FaceDetectorViewState extends State<FaceDetectorView> {
       onImage: (inputImage) {
         processImage(inputImage);
       },
-      initialDirection: CameraLensDirection.front,
     );
   }
 

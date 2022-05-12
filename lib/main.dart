@@ -1,14 +1,10 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import 'face_detector_view.dart';
 
-List<CameraDescription> cameras = [];
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  cameras = await availableCameras();
   runApp(const MyApp());
 }
 
